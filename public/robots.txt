@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Sitemap: [SITE_URL not configured. Add SITE_URL to build environment.]

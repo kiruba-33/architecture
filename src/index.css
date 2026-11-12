@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #542638;
+    --color-primary-hover: #3F1C2A;
+    --color-secondary: #875467;
+    --color-accent: #A99AA5;
+    --color-background: #F5F1ED;
+    --color-surface: #FFFFFF;
+    --color-border: #D9D8DC;
+    --color-charcoal: #29252A;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #29252A;
+    background-color: #F5F1ED;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    background-color: #F5F1ED;
+    color: #29252A;
+  }
+
+  ::selection {
+    background-color: #542638;
+    color: #FFFFFF;
+  }
+}
