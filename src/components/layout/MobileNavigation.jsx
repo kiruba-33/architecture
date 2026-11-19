@@ -3,10 +3,13 @@ import { NavLink } from 'react-router-dom'
 import { navigation } from '../../data/navigation'
 import ArchitecturalSymbol from '../common/ArchitecturalSymbol'
 import Button from '../common/Button'
-import { HiXMark, HiArrowRight } from 'react-icons/hi2'
+import { HiXMark, HiArrowRight, HiOutlineUser } from 'react-icons/hi2'
 
 /**
  * Responsive Mobile Navigation Drawer.
+ * Includes official navigation items, services quick access,
+ * and dual action buttons: Product Enquiry & Client Login.
+ *
  * @param {{ isOpen: boolean, onClose: () => void }} props
  */
 export default function MobileNavigation({ isOpen, onClose }) {
@@ -46,7 +49,7 @@ export default function MobileNavigation({ isOpen, onClose }) {
           <button
             type="button"
             onClick={onClose}
-            className="p-2 text-charcoal hover:text-burgundy transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-burgundy"
+            className="p-2 text-charcoal hover:text-coral transition-colors rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-coral"
             aria-label="Close navigation menu"
           >
             <HiXMark className="w-6 h-6" aria-hidden="true" />
@@ -64,8 +67,8 @@ export default function MobileNavigation({ isOpen, onClose }) {
                 className={({ isActive }) =>
                   `px-3 py-3.5 text-base font-semibold uppercase tracking-wider transition-colors flex items-center justify-between border-b border-gray-100 ${
                     isActive
-                      ? 'text-burgundy bg-ivory border-l-4 border-l-burgundy font-bold'
-                      : 'text-charcoal hover:text-wine hover:bg-ivory/40'
+                      ? 'text-coral bg-ivory border-l-4 border-l-coral font-bold'
+                      : 'text-charcoal hover:text-secondary hover:bg-ivory/40'
                   }`
                 }
               >
@@ -77,7 +80,7 @@ export default function MobileNavigation({ isOpen, onClose }) {
 
           {/* Core Services Quick Access */}
           <div className="mt-8 pt-6 border-t border-silver">
-            <span className="text-xs font-bold uppercase tracking-widest text-wine block mb-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-secondary block mb-3">
               Services
             </span>
             <div className="grid grid-cols-1 gap-2">
@@ -86,7 +89,7 @@ export default function MobileNavigation({ isOpen, onClose }) {
                   key={service.path}
                   to={service.path}
                   onClick={onClose}
-                  className="text-sm text-charcoal/80 hover:text-burgundy py-1.5 transition-colors"
+                  className="text-sm text-charcoal/80 hover:text-coral py-1.5 transition-colors"
                 >
                   {service.label}
                 </NavLink>
@@ -95,8 +98,8 @@ export default function MobileNavigation({ isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Footer CTA */}
-        <div className="p-6 border-t border-silver bg-ivory">
+        {/* Footer CTAs: Product Enquiry & Client Login */}
+        <div className="p-6 border-t border-silver bg-ivory space-y-3">
           <Button
             to={navigation.cta.path}
             onClick={onClose}
@@ -107,6 +110,20 @@ export default function MobileNavigation({ isOpen, onClose }) {
           >
             {navigation.cta.label}
           </Button>
+
+          <button
+            type="button"
+            aria-label="Client Login"
+            className="w-full inline-flex items-center justify-center font-semibold text-base tracking-wide px-7 py-3 gap-2.5 rounded border border-charcoal/30 text-charcoal bg-white hover:bg-charcoal hover:text-white transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-charcoal active:translate-y-px select-none"
+            onClick={(e) => {
+              e.preventDefault()
+              onClose()
+              // Client Login UI-only: placeholder ready for future authentication
+            }}
+          >
+            <HiOutlineUser className="text-current text-lg shrink-0" aria-hidden="true" />
+            <span>Client Login</span>
+          </button>
         </div>
       </div>
     </div>

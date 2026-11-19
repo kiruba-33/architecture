@@ -70,10 +70,10 @@ export default function PageHero({
             <div className="relative inline-flex items-center ml-10 sm:ml-0 mb-4 sm:mb-5">
               {/* Thin horizontal line extending inward from the far-left edge of the viewport */}
               <div
-                className="absolute right-full mr-4 sm:mr-5 top-1/2 -translate-y-1/2 w-[100vw] h-[2px] bg-burgundy pointer-events-none"
+                className="absolute right-full mr-4 sm:mr-5 top-1/2 -translate-y-1/2 w-[100vw] h-[2px] bg-coral pointer-events-none"
                 aria-hidden="true"
               />
-              <span className="text-eyebrow font-condensed font-extrabold uppercase tracking-[0.2em] text-burgundy">
+              <span className="text-eyebrow font-condensed font-extrabold uppercase tracking-[0.2em] text-charcoal">
                 {activeEyebrow}
               </span>
             </div>

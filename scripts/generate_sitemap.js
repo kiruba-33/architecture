@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { services } from '../src/data/services.js'
 import { projects } from '../src/data/projects.js'
+import { articles } from '../src/data/blog.js'
 
 const PUBLIC_DIR = path.resolve(process.cwd(), 'public')
 const siteUrl = process.env.SITE_URL ? process.env.SITE_URL.replace(/\/+$/, '') : ''
@@ -24,6 +25,12 @@ const routes = [
       priority: '0.7',
       changefreq: 'monthly',
     })),
+  { path: '/blog', priority: '0.8', changefreq: 'weekly' },
+  ...articles.map((a) => ({
+    path: `/blog/${a.slug}`,
+    priority: '0.7',
+    changefreq: 'monthly',
+  })),
   { path: '/contact', priority: '0.8', changefreq: 'monthly' },
 ]
 

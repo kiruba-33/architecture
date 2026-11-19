@@ -38,8 +38,8 @@ export default function CallToAction({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8">
             {kicker && (
-              <div className="inline-flex items-center gap-2 mb-3 text-eyebrow font-condensed font-extrabold uppercase tracking-[0.18em] text-mauve">
-                <span className="w-6 h-0.5 bg-mauve inline-block shrink-0" />
+              <div className="inline-flex items-center gap-2 mb-3 text-eyebrow font-condensed font-extrabold uppercase tracking-[0.18em] text-white">
+                <span className="w-6 h-0.5 bg-white inline-block shrink-0" />
                 <span>{kicker}</span>
               </div>
             )}

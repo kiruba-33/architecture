@@ -88,7 +88,7 @@ export default function ProjectDetailPage() {
           1. EDITORIAL PROJECT CASE STUDY HERO
       ───────────────────────────────────────────────────────────── */}
       <PageHero
-        eyebrow={`PROJECT DETAILS / ${project.category?.toUpperCase() || 'CASE STUDY'}`}
+        eyebrow={`${project.isSample ? 'DESIGN STUDY' : 'PROJECT DETAILS'} / ${project.category?.toUpperCase() || 'CASE STUDY'}`}
         title={project.title}
         description={project.summary}
         breadcrumbs={[
@@ -105,10 +105,22 @@ export default function ProjectDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column: Comprehensive Narrative */}
             <div className="lg:col-span-8">
+              {/* Concept Study Notice */}
+              {project.isSample && (
+                <div className="mb-8 p-4 bg-ivory border-l-4 border-l-coral border border-silver text-xs text-charcoal/80 flex items-start gap-3 rounded-r-lg">
+                  <span className="font-mono font-bold uppercase text-coral shrink-0 mt-0.5">
+                    Notice:
+                  </span>
+                  <span>
+                    This work is an architectural design research concept developed to explore structural proportion, material chemistry, and spatial equilibrium. It is presented as a studio demonstration study.
+                  </span>
+                </div>
+              )}
+
               <SectionHeading
-                kicker="CASE STUDY"
-                title="Project Overview & Execution Details"
-                subtitle="Detailed architectural and structural execution documentation."
+                kicker={project.isSample ? 'CONCEPT STUDY' : 'CASE STUDY'}
+                title={project.isSample ? 'Design Concept & Spatial Objectives' : 'Project Overview & Execution Details'}
+                subtitle={project.isSample ? 'Detailed spatial research, structural methodology, and material documentation.' : 'Detailed architectural and structural execution documentation.'}
               />
 
               <div className="mt-6 text-base sm:text-lg text-charcoal/70 leading-relaxed space-y-4">
@@ -119,13 +131,13 @@ export default function ProjectDetailPage() {
               {project.requirements && project.requirements.length > 0 && (
                 <div className="mt-10 pt-8 border-t border-silver/50">
                   <h3 className="text-sm font-bold uppercase tracking-wider text-charcoal mb-4 flex items-center gap-2">
-                    <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-burgundy" aria-hidden="true" />
-                    <span>Project Requirements</span>
+                    <HiOutlineClipboardDocumentCheck className="w-5 h-5 text-coral" aria-hidden="true" />
+                    <span>{project.isSample ? 'Design & Spatial Objectives' : 'Project Requirements'}</span>
                   </h3>
                   <ul className="space-y-3">
                     {project.requirements.map((req, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-sm sm:text-base text-charcoal/75">
-                        <span className="w-1.5 h-1.5 rounded-full bg-wine shrink-0 mt-2" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 mt-2" />
                         <span>{req}</span>
                       </li>
                     ))}
@@ -137,16 +149,16 @@ export default function ProjectDetailPage() {
               {project.scopeOfWork && project.scopeOfWork.length > 0 && (
                 <div className="mt-10 pt-8 border-t border-silver/50">
                   <h3 className="text-sm font-bold uppercase tracking-wider text-charcoal mb-4 flex items-center gap-2">
-                    <HiOutlineWrenchScrewdriver className="w-5 h-5 text-burgundy" aria-hidden="true" />
-                    <span>Delivered Scope of Work</span>
+                    <HiOutlineWrenchScrewdriver className="w-5 h-5 text-coral" aria-hidden="true" />
+                    <span>{project.isSample ? 'Design Scope & Structural Methodology' : 'Delivered Scope of Work'}</span>
                   </h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     {project.scopeOfWork.map((item, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-2.5 p-3.5 bg-ivory border border-silver text-xs sm:text-sm font-medium text-charcoal"
+                        className="flex items-start gap-2.5 p-3.5 bg-ivory border border-silver text-xs sm:text-sm font-medium text-charcoal rounded-md"
                       >
-                        <HiCheckCircle className="w-4 h-4 text-burgundy shrink-0 mt-0.5" aria-hidden="true" />
+                        <HiCheckCircle className="w-4 h-4 text-coral shrink-0 mt-0.5" aria-hidden="true" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -157,15 +169,15 @@ export default function ProjectDetailPage() {
 
             {/* Right Column: Key Project Facts Sidebar */}
             <div className="lg:col-span-4 sticky top-28">
-              <div className="bg-charcoal text-white p-7 sm:p-8 border-t-4 border-t-burgundy shadow-xl">
+              <div className="bg-charcoal text-white p-7 sm:p-8 border-t-4 border-t-coral shadow-xl rounded-lg">
                 <h3 className="text-lg font-bold text-white mb-6 pb-4 border-b border-charcoal-dark">
-                  Project Facts
+                  {project.isSample ? 'Study Parameters' : 'Project Facts'}
                 </h3>
 
                 <dl className="space-y-5 text-sm">
                   <div>
-                    <dt className="text-xs font-bold uppercase tracking-wider text-mauve flex items-center gap-1.5">
-                      <HiTag className="w-4 h-4 text-mauve" aria-hidden="true" />
+                    <dt className="text-xs font-bold uppercase tracking-wider text-white/90 flex items-center gap-1.5">
+                      <HiTag className="w-4 h-4 text-white/80" aria-hidden="true" />
                       <span>Category</span>
                     </dt>
                     <dd className="mt-1 font-semibold text-white">
@@ -173,10 +185,21 @@ export default function ProjectDetailPage() {
                     </dd>
                   </div>
 
+                  {project.typology && (
+                    <div>
+                      <dt className="text-xs font-bold uppercase tracking-wider text-white/90">
+                        Typology
+                      </dt>
+                      <dd className="mt-1 font-semibold text-ivory">
+                        {project.typology}
+                      </dd>
+                    </div>
+                  )}
+
                   {project.location && (
                     <div>
-                      <dt className="text-xs font-bold uppercase tracking-wider text-mauve flex items-center gap-1.5">
-                        <HiMapPin className="w-4 h-4 text-mauve" aria-hidden="true" />
+                      <dt className="text-xs font-bold uppercase tracking-wider text-white/90 flex items-center gap-1.5">
+                        <HiMapPin className="w-4 h-4 text-white/80" aria-hidden="true" />
                         <span>Location</span>
                       </dt>
                       <dd className="mt-1 font-semibold text-white">
@@ -186,11 +209,11 @@ export default function ProjectDetailPage() {
                   )}
 
                   <div>
-                    <dt className="text-xs font-bold uppercase tracking-wider text-mauve">
+                    <dt className="text-xs font-bold uppercase tracking-wider text-white/90">
                       Documentation Status
                     </dt>
-                    <dd className="mt-1 font-semibold text-ivory">
-                      Verified Case Study
+                    <dd className="mt-1 font-semibold text-coral">
+                      {project.isSample ? 'Studio Design Study' : 'Verified Case Study'}
                     </dd>
                   </div>
                 </dl>
@@ -216,13 +239,20 @@ export default function ProjectDetailPage() {
           3. PROJECT GALLERY
       ───────────────────────────────────────────────────────────── */}
       {project.galleryImages && project.galleryImages.length > 0 && (
-        <section className="py-20 sm:py-24 bg-ivory border-b border-silver">
-          <Container>
+        <section className="relative py-20 sm:py-24 bg-ivory border-b border-silver overflow-hidden">
+          {/* Architectural Background Artwork: Design A (Topographic Contour Texture) */}
+          <div
+            className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-[0.22] mix-blend-multiply"
+            style={{ backgroundImage: 'url(/images/backgrounds/bg-topography.webp)' }}
+            aria-hidden="true"
+          />
+
+          <Container className="relative z-10">
             <div className="mb-12">
               <SectionHeading
-                kicker="DOCUMENTATION GALLERY"
-                title="Site Photography & Detailing"
-                subtitle="Captured views of completed structures, interior spaces, and facade execution."
+                kicker={project.isSample ? 'CONCEPT VISUALS' : 'DOCUMENTATION GALLERY'}
+                title={project.isSample ? 'Architectural Imagery & Studies' : 'Site Photography & Detailing'}
+                subtitle={project.isSample ? 'High-resolution architectural renders, structural drafting studies, and material explorations.' : 'Captured views of completed structures, interior spaces, and facade execution.'}
               />
             </div>
 
@@ -239,12 +269,12 @@ export default function ProjectDetailPage() {
           <Container>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
               <SectionHeading
-                kicker="PORTFOLIO"
-                title="Related Project Case Studies"
-                subtitle="Other completed structures within similar building typologies."
+                kicker={project.isSample ? 'EXPLORE MORE' : 'PORTFOLIO'}
+                title={project.isSample ? 'Related Architectural Studies' : 'Related Project Case Studies'}
+                subtitle={project.isSample ? 'Other conceptual design studies exploring similar architectural typologies.' : 'Other completed structures within similar building typologies.'}
               />
               <Button to="/projects" variant="outline" size="sm" icon={HiArrowRight}>
-                View All Works
+                View All Concepts
               </Button>
             </div>
 
@@ -253,7 +283,7 @@ export default function ProjectDetailPage() {
                 <Link
                   key={relProject.slug}
                   to={`/projects/${relProject.slug}`}
-                  className="group bg-white p-6 border border-silver hover:border-burgundy transition-all hover:shadow-md flex flex-col justify-between"
+                  className="group bg-white p-6 border border-silver hover:border-coral transition-all hover:shadow-md flex flex-col justify-between rounded-lg"
                 >
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-wine block mb-2">

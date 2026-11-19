@@ -26,8 +26,8 @@ export default function SectionEyebrow({
 
   const isDark = theme === 'dark'
 
-  const resolvedTextColor = textColor || (isDark ? 'text-mauve' : 'text-burgundy')
-  const resolvedLineColor = lineColor || (isDark ? 'bg-mauve' : 'bg-burgundy')
+  const resolvedTextColor = textColor || (isDark ? 'text-white' : 'text-charcoal')
+  const resolvedLineColor = lineColor || (isDark ? 'bg-coral' : 'bg-coral')
 
   return (
     <div

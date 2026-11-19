@@ -7,59 +7,66 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Luxury Architecture: Burgundy + Silver + Ivory
+        // ESKY Architects Official Brand Palette (Extracted from Logo)
+        coral: {
+          DEFAULT: '#F57B54',       // Primary Coral Orange
+          hover: '#E0653E',         // Richer coral for active/hover
+          light: '#F89678',
+          tint: '#FDEEE9',
+        },
         burgundy: {
-          DEFAULT: '#542638',       // Deep Burgundy (Primary Brand)
-          hover: '#3F1C2A',         // Rich deeper burgundy for active/hover
-          light: '#6B3147',
+          DEFAULT: '#F57B54',       // Mapped to ESKY Coral Orange
+          hover: '#E0653E',         // Richer coral hover
+          light: '#F89678',
         },
         wine: {
-          DEFAULT: '#875467',       // Muted Wine (Secondary / Link / Hover)
-          hover: '#734455',
+          DEFAULT: '#6D6D6D',       // Mapped to ESKY Charcoal Grey
+          hover: '#525252',
         },
-        mauve: '#A99AA5',           // Mauve Grey (Subtle decorative accent)
+        mauve: '#8C8C8C',           // Muted secondary accent
         ivory: {
-          DEFAULT: '#F5F1ED',       // Main warm background
-          light: '#FAF8F5',
+          DEFAULT: '#F8F6F2',       // Main warm off-white foundation
+          light: '#FFFFFF',
+          dark: '#EFECE6',
         },
         silver: {
-          DEFAULT: '#D9D8DC',       // Borders, separators, subtle neutral
-          light: '#EBEAEF',
-          dark: '#C5C3CA',
+          DEFAULT: '#E8E5DF',       // Subtle borders, separators
+          light: '#F2EFEB',
+          dark: '#D5D1C9',
         },
         charcoal: {
           DEFAULT: '#29252A',       // Main text & strong contrast
           dark: '#1A171B',
-          muted: '#524C54',
+          muted: '#6D6D6D',
         },
         // Semantic design tokens
         primary: {
-          DEFAULT: '#542638',
-          hover: '#3F1C2A',
+          DEFAULT: '#F57B54',
+          hover: '#E0653E',
         },
         secondary: {
-          DEFAULT: '#875467',
-          hover: '#734455',
+          DEFAULT: '#6D6D6D',
+          hover: '#525252',
         },
-        accent: '#A99AA5',
-        background: '#F5F1ED',
+        accent: '#F57B54',
+        background: '#F8F6F2',
         surface: '#FFFFFF',
         'text-primary': '#29252A',
-        'text-secondary': '#6D6770',
-        border: '#D9D8DC',
+        'text-secondary': '#6D6D6D',
+        border: '#E8E5DF',
 
-        // Backward compatibility mappings transitioning to the new luxury palette
+        // Backward compatibility mappings transitioning to the ESKY Architects brand palette
         ak: {
-          green: '#542638',         // Deep Burgundy (Primary Brand)
-          'green-dark': '#3F1C2A',  // Rich Deep Burgundy
-          'green-light': '#875467', // Muted Wine
+          green: '#F57B54',         // ESKY Coral Orange
+          'green-dark': '#E0653E',  // Rich Coral Hover
+          'green-light': '#6D6D6D', // Charcoal Grey
           charcoal: '#29252A',      // Charcoal Dark
           'charcoal-light': '#3A343C',
-          yellow: '#875467',        // Muted Wine Accent
-          'yellow-hover': '#542638',// Deep Burgundy
-          light: '#F5F1ED',         // Ivory warm background
-          border: '#D9D8DC',        // Silver border
-          muted: '#6D6770',         // Muted Slate Text
+          yellow: '#6D6D6D',        // Muted Charcoal Grey
+          'yellow-hover': '#F57B54',// Coral Orange
+          light: '#F8F6F2',         // Warm off-white background
+          border: '#E8E5DF',        // Subtle border
+          muted: '#6D6D6D',         // Muted Charcoal Text
         },
       },
       fontFamily: {
@@ -67,9 +74,9 @@ export default {
         condensed: ['"Roboto Condensed"', 'sans-serif-condensed', 'Arial Narrow', 'sans-serif'],
       },
       fontSize: {
-        'hero-h1': ['clamp(2.5rem, 4.5vw + 1.25rem, 4.625rem)', { lineHeight: '1.02', letterSpacing: '-0.02em', fontWeight: '800' }],
-        'section-h2': ['clamp(2rem, 2.5vw + 1rem, 3.25rem)', { lineHeight: '1.08', letterSpacing: '-0.015em', fontWeight: '700' }],
-        'card-h3': ['clamp(1.5rem, 1.25vw + 1rem, 1.875rem)', { lineHeight: '1.18', letterSpacing: '-0.01em', fontWeight: '700' }],
+        'hero-h1': ['clamp(2rem, 4.5vw + 1rem, 4.625rem)', { lineHeight: '1.04', letterSpacing: '-0.02em', fontWeight: '800' }],
+        'section-h2': ['clamp(1.75rem, 2.5vw + 0.875rem, 3.25rem)', { lineHeight: '1.08', letterSpacing: '-0.015em', fontWeight: '700' }],
+        'card-h3': ['clamp(1.25rem, 1.25vw + 0.875rem, 1.875rem)', { lineHeight: '1.18', letterSpacing: '-0.01em', fontWeight: '700' }],
         'eyebrow': ['clamp(0.75rem, 0.5vw + 0.625rem, 0.875rem)', { lineHeight: '1.2', letterSpacing: '0.18em', fontWeight: '700' }],
         'body-lg': ['clamp(1rem, 0.5vw + 0.875rem, 1.125rem)', { lineHeight: '1.65' }],
         'body-reg': ['clamp(0.9375rem, 0.25vw + 0.875rem, 1rem)', { lineHeight: '1.6' }],

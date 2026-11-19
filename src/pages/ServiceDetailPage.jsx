@@ -130,9 +130,9 @@ export default function ServiceDetailPage() {
                   {service.scopeOfWork.map((item, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-2.5 p-3.5 bg-ivory border border-silver text-xs sm:text-sm font-medium text-charcoal"
+                      className="flex items-start gap-2.5 p-3.5 bg-ivory border border-silver text-xs sm:text-sm font-medium text-charcoal rounded-md"
                     >
-                      <HiCheckCircle className="w-4 h-4 text-burgundy shrink-0 mt-0.5" aria-hidden="true" />
+                      <HiCheckCircle className="w-4 h-4 text-coral shrink-0 mt-0.5" aria-hidden="true" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -142,9 +142,9 @@ export default function ServiceDetailPage() {
 
             {/* Right Column: Benefits & Key Considerations Card */}
             <div className="lg:col-span-5 sticky top-28">
-              <div className="bg-charcoal text-white p-7 sm:p-9 border-t-4 border-t-burgundy shadow-xl">
-                <span className="text-xs font-bold uppercase tracking-widest text-mauve flex items-center gap-2">
-                  <HiOutlineSparkles className="w-4 h-4" aria-hidden="true" />
+              <div className="bg-charcoal text-white p-7 sm:p-9 border-t-4 border-t-coral shadow-xl rounded-lg">
+                <span className="text-xs font-bold uppercase tracking-widest text-white flex items-center gap-2">
+                  <HiOutlineSparkles className="w-4 h-4 text-coral" aria-hidden="true" />
                   <span>Strategic Advantages</span>
                 </span>
 
@@ -181,8 +181,15 @@ export default function ServiceDetailPage() {
       {/* ─────────────────────────────────────────────────────────────
           3. STEP-BY-STEP WORKING PROCESS
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-24 bg-ivory border-b border-silver">
-        <Container>
+      <section className="relative py-20 sm:py-24 bg-ivory border-b border-silver overflow-hidden">
+        {/* Architectural Background Artwork: Design D (Abstract Geometric Composition) */}
+        <div
+          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-[0.45] mix-blend-multiply"
+          style={{ backgroundImage: 'url(/images/backgrounds/bg-geometric.webp)' }}
+          aria-hidden="true"
+        />
+
+        <Container className="relative z-10">
           <div className="max-w-3xl mb-14">
             <SectionHeading
               kicker="EXECUTION ROADMAP"
@@ -195,14 +202,14 @@ export default function ServiceDetailPage() {
             {service.processSteps.map((step) => (
               <div
                 key={step.step}
-                className="bg-white p-7 border border-silver hover:border-burgundy transition-all shadow-xs flex flex-col justify-between"
+                className="bg-white p-7 border border-silver hover:border-coral transition-all shadow-xs flex flex-col justify-between rounded-lg"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4 pb-3 border-b border-silver/50">
-                    <span className="text-2xl font-black font-mono text-wine">
+                    <span className="text-2xl font-black font-mono text-secondary">
                       {step.step}
                     </span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal/50">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal/50 font-mono">
                       Phase {step.step}
                     </span>
                   </div>
@@ -211,7 +218,7 @@ export default function ServiceDetailPage() {
                     {step.title}
                   </h4>
 
-                  <p className="mt-2 text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+                  <p className="mt-2 text-xs sm:text-sm text-charcoal/70 leading-relaxed font-light">
                     {step.description}
                   </p>
                 </div>
@@ -239,7 +246,7 @@ export default function ServiceDetailPage() {
               {service.galleryImages.map((imgUrl, idx) => (
                 <div
                   key={idx}
-                  className="group relative aspect-[4/3] overflow-hidden bg-charcoal border border-silver shadow-xs"
+                  className="group relative aspect-[4/3] overflow-hidden bg-charcoal border border-silver shadow-xs rounded-lg"
                 >
                   <img
                     src={imgUrl}
@@ -249,7 +256,7 @@ export default function ServiceDetailPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-3 left-3 right-3 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="font-semibold text-mauve">Documentation</span> &bull; Reference View {idx + 1}
+                    <span className="font-semibold text-secondary">Documentation</span> &bull; Reference View {idx + 1}
                   </div>
                 </div>
               ))}
@@ -280,7 +287,7 @@ export default function ServiceDetailPage() {
                 <Link
                   key={relService.slug}
                   to={`/services/${relService.slug}`}
-                  className="group bg-white p-6 border border-silver hover:border-burgundy transition-all hover:shadow-md flex flex-col justify-between"
+                  className="group bg-white p-6 border border-silver hover:border-coral transition-all hover:shadow-md flex flex-col justify-between rounded-lg"
                 >
                   <div>
                     <h4 className="text-base font-bold text-charcoal group-hover:text-burgundy transition-colors">

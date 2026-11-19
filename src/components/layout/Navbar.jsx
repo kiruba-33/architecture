@@ -42,10 +42,10 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className={`p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-burgundy ${
+                className={`p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-coral ${
                   isTransparent
-                    ? 'text-white hover:text-wine'
-                    : 'text-charcoal hover:text-burgundy'
+                    ? 'text-white hover:text-coral'
+                    : 'text-charcoal hover:text-coral'
                 }`}
                 aria-label="Open mobile navigation menu"
               >

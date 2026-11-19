@@ -7,6 +7,7 @@ export const navigation = {
     { label: "About", path: "/about" },
     { label: "Services", path: "/services" },
     { label: "Projects", path: "/projects" },
+    { label: "Blog", path: "/blog" },
     { label: "Contact", path: "/contact" },
   ],
   footerServices: [
@@ -19,7 +20,7 @@ export const navigation = {
     { label: "Waterproofing", path: "/services/waterproofing" },
   ],
   cta: {
-    label: "Project Enquiry",
+    label: "Product Enquiry",
     path: "/contact",
   },
 }

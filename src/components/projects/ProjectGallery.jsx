@@ -12,7 +12,7 @@ export default function ProjectGallery({ images = [], title = 'Project Documenta
       {images.map((image, index) => (
         <figure
           key={index}
-          className="group relative aspect-[16/11] overflow-hidden bg-charcoal border border-silver shadow-xs"
+          className="group relative aspect-[16/11] overflow-hidden bg-charcoal border border-silver shadow-xs rounded-lg"
         >
           <img
             src={image}

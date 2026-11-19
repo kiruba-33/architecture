@@ -4,9 +4,9 @@
  * Contact details remain empty until verified business information is supplied.
  */
 export const siteConfig = {
-  // Empty until the official replacement company name is provided
-  companyName: "",
-  category: "Corporate Architecture & General Contracting",
+  // Official project brand name
+  companyName: "ESKY Architects",
+  category: "Architectural Planning & Civil Contracting",
 
   // Verified contact fields - keep empty until real information is provided
   phone: "",

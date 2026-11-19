@@ -101,26 +101,26 @@ export default function ServicesPage() {
 
           {/* Value highlights */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 bg-ivory border border-silver">
-              <HiOutlineClipboardDocumentList className="w-8 h-8 text-burgundy mb-4" aria-hidden="true" />
+            <div className="p-6 bg-ivory border border-silver rounded-lg">
+              <HiOutlineClipboardDocumentList className="w-8 h-8 text-coral mb-4" aria-hidden="true" />
               <h3 className="text-base font-bold text-charcoal">Pre-Construction Rigor</h3>
-              <p className="mt-2 text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm text-charcoal/70 leading-relaxed font-light">
                 Detailed blueprints, Vastu orientation, and 3D visual mockups eliminate guesswork before breaking ground.
               </p>
             </div>
 
-            <div className="p-6 bg-ivory border border-silver">
-              <HiOutlineCube className="w-8 h-8 text-burgundy mb-4" aria-hidden="true" />
+            <div className="p-6 bg-ivory border border-silver rounded-lg">
+              <HiOutlineCube className="w-8 h-8 text-coral mb-4" aria-hidden="true" />
               <h3 className="text-base font-bold text-charcoal">Structural Execution</h3>
-              <p className="mt-2 text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm text-charcoal/70 leading-relaxed font-light">
                 Supervised site operations, certified raw materials, and disciplined craftsmen ensure exact structural alignment.
               </p>
             </div>
 
-            <div className="p-6 bg-ivory border border-silver">
-              <HiOutlineShieldCheck className="w-8 h-8 text-burgundy mb-4" aria-hidden="true" />
+            <div className="p-6 bg-ivory border border-silver rounded-lg">
+              <HiOutlineShieldCheck className="w-8 h-8 text-coral mb-4" aria-hidden="true" />
               <h3 className="text-base font-bold text-charcoal">Protective Systems</h3>
-              <p className="mt-2 text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm text-charcoal/70 leading-relaxed font-light">
                 Advanced chemical and elastomeric barrier systems guard against moisture, corrosion, and long-term degradation.
               </p>
             </div>
@@ -131,8 +131,15 @@ export default function ServicesPage() {
       {/* ─────────────────────────────────────────────────────────────
           3. SEVEN CORE SERVICES DIRECTORY
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 bg-ivory border-b border-silver">
-        <Container>
+      <section className="relative py-20 sm:py-28 bg-ivory border-b border-silver overflow-hidden">
+        {/* Architectural Background Artwork: Design B (Architectural Line Art / Elevation) */}
+        <div
+          className="absolute inset-y-0 right-0 w-full lg:w-3/5 bg-contain bg-right-center bg-no-repeat pointer-events-none opacity-[0.16] mix-blend-multiply"
+          style={{ backgroundImage: 'url(/images/backgrounds/bg-lineart.webp)' }}
+          aria-hidden="true"
+        />
+
+        <Container className="relative z-10">
           <div className="mb-14">
             <SectionHeading
               kicker="OUR EXPERTISE"
@@ -171,19 +178,19 @@ export default function ServicesPage() {
                 return (
                   <div
                     key={idx}
-                    className="border border-silver bg-white transition-colors overflow-hidden"
+                    className="border border-silver bg-white transition-colors overflow-hidden rounded-lg"
                   >
                     <button
                       type="button"
                       onClick={() => toggleFaq(idx)}
-                      className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-burgundy hover:bg-ivory/50 transition-colors"
+                      className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-coral hover:bg-ivory/50 transition-colors"
                       aria-expanded={isOpen}
                     >
-                      <span className="font-bold text-base sm:text-lg text-charcoal">
+                      <span className="font-bold text-base sm:text-lg text-charcoal font-condensed">
                         {faq.question}
                       </span>
                       <HiOutlineChevronDown
-                        className={`w-5 h-5 text-burgundy shrink-0 transition-transform duration-200 ${
+                        className={`w-5 h-5 text-coral shrink-0 transition-transform duration-200 ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                         aria-hidden="true"

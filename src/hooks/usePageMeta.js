@@ -10,7 +10,7 @@ import { useEffect } from 'react'
  * @param {object} [options.jsonLd] - JSON-LD structured data object
  */
 export function usePageMeta(title, description, options = {}) {
-  const { ogImage, jsonLd } = options
+  const { ogImage, jsonLd, canonical } = options
 
   useEffect(() => {
     // 1. Page Title
@@ -62,7 +62,18 @@ export function usePageMeta(title, description, options = {}) {
       metaOgImage.setAttribute('content', ogImage)
     }
 
-    // 6. JSON-LD Structured Data
+    // 6. Canonical URL
+    if (canonical) {
+      let linkCanonical = document.querySelector('link[rel="canonical"]')
+      if (!linkCanonical) {
+        linkCanonical = document.createElement('link')
+        linkCanonical.setAttribute('rel', 'canonical')
+        document.head.appendChild(linkCanonical)
+      }
+      linkCanonical.setAttribute('href', canonical)
+    }
+
+    // 7. JSON-LD Structured Data
     if (jsonLd) {
       let script = document.querySelector('#page-json-ld')
       if (!script) {
@@ -81,5 +92,5 @@ export function usePageMeta(title, description, options = {}) {
         existingScript.remove()
       }
     }
-  }, [title, description, ogImage, jsonLd])
+  }, [title, description, ogImage, jsonLd, canonical])
 }

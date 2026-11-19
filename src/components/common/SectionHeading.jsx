@@ -36,11 +36,11 @@ export default function SectionHeading({
             <div className="relative inline-flex items-center ml-10 lg:ml-0">
               {/* Exact PCL-style 1px horizontal line beginning at extreme left edge of viewport with ~25px gap */}
               <div
-                className="absolute right-full mr-[25px] top-1/2 -translate-y-1/2 w-[100vw] h-px bg-burgundy pointer-events-none"
+                className="absolute right-full mr-[25px] top-1/2 -translate-y-1/2 w-[100vw] h-px bg-coral pointer-events-none"
                 style={{ height: '1px' }}
                 aria-hidden="true"
               />
-              <span className="text-eyebrow font-condensed font-extrabold uppercase tracking-[0.2em] text-burgundy">
+              <span className={`text-eyebrow font-condensed font-extrabold uppercase tracking-[0.2em] ${isDark ? 'text-white' : 'text-charcoal'}`}>
                 {kicker}
               </span>
             </div>

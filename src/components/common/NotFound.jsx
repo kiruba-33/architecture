@@ -18,25 +18,25 @@ export default function NotFound({
   return (
     <div className="min-h-[60vh] flex items-center justify-center py-20 bg-ivory">
       <Container>
-        <div className="max-w-xl mx-auto text-center bg-white p-8 sm:p-12 border border-silver shadow-sm">
-          <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-ivory border border-silver text-burgundy">
+        <div className="max-w-xl mx-auto text-center bg-white p-8 sm:p-12 border border-silver shadow-sm rounded-lg">
+          <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-ivory border border-silver text-coral rounded-md">
             <HiOutlineBuildingOffice2 className="w-8 h-8" aria-hidden="true" />
           </div>
 
-          <span className="text-xs font-bold uppercase tracking-widest text-wine">
+          <span className="text-xs font-bold uppercase tracking-widest text-secondary font-mono">
             Error {code}
           </span>
 
-          <h1 className="mt-2 text-2xl sm:text-3xl font-extrabold text-charcoal tracking-tight">
+          <h1 className="mt-2 text-2xl sm:text-3xl font-extrabold text-charcoal tracking-tight font-condensed">
             {title}
           </h1>
 
-          <p className="mt-3 text-sm sm:text-base text-charcoal/70 leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-charcoal/70 leading-relaxed font-light">
             {message}
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Button to={actionTo} variant="corporate" size="md" icon={HiArrowLeft} iconPosition="left">
+            <Button to={actionTo} variant="primary" size="md" icon={HiArrowLeft} iconPosition="left">
               {actionText}
             </Button>
             {secondaryText && secondaryTo && (

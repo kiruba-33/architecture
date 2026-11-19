@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { services } from '../src/data/services.js'
 import { projects } from '../src/data/projects.js'
+import { articles } from '../src/data/blog.js'
 
 const DIST_DIR = path.resolve(process.cwd(), 'dist')
 const templatePath = path.join(DIST_DIR, 'index.html')
@@ -23,7 +24,7 @@ const routes = [
   {
     url: '/',
     outputPath: path.join(DIST_DIR, 'index.html'),
-    title: 'Corporate Architecture & Civil General Contracting',
+    title: 'ESKY Architects | Architectural Planning & Civil General Contracting',
     description:
       'Specialized architectural planning, structural civil contracting, high-performance exterior elevations, renovation, and fine interior fit-outs.',
     ogImage:
@@ -31,7 +32,7 @@ const routes = [
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
-      name: 'Corporate Architecture & General Contracting',
+      name: 'ESKY Architects',
       description:
         'Comprehensive architectural planning, structural civil construction, interior execution, and engineering contracting services.',
       areaServed: 'India',
@@ -51,7 +52,7 @@ const routes = [
     outputPath: path.join(DIST_DIR, 'about/index.html'),
     title: 'About Our Practice | Architectural & Civil Engineering Standards',
     description:
-      'A disciplined engineering and architectural practice dedicated to spatial equilibrium, structural integrity, and rigorous execution.',
+      'Learn about Architecture One (ESKY Architects) — our design philosophy, engineering standards, and unified approach to architecture and construction.',
     ogImage:
       'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
     jsonLd: {
@@ -59,7 +60,7 @@ const routes = [
       '@type': 'AboutPage',
       name: 'About Our Practice',
       description:
-        'A disciplined engineering and architectural practice dedicated to spatial equilibrium, structural integrity, and rigorous execution.',
+        'A disciplined engineering and architectural practice dedicated to practical design, structural strength, and reliable execution.',
     },
   },
   {
@@ -130,6 +131,47 @@ const routes = [
         image: project.coverImage,
       },
     })),
+  {
+    url: '/blog',
+    outputPath: path.join(DIST_DIR, 'blog/index.html'),
+    title: 'The Architecture Journal | Architectural Ideas, Design & Materials',
+    description:
+      'Explore critical architectural essays, spatial design perspectives, material investigations, and structural sustainability insights from Architecture One.',
+    ogImage: '/images/blog/blog-1.jpg',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'The Architecture Journal',
+      description:
+        'Critical architectural essays, spatial design perspectives, and material investigations.',
+      url: 'https://eskyarchitects.com/blog',
+    },
+  },
+  // Published blog articles
+  ...articles.map((article) => ({
+    url: `/blog/${article.slug}`,
+    outputPath: path.join(DIST_DIR, `blog/${article.slug}/index.html`),
+    title: article.seoTitle,
+    description: article.seoDescription,
+    ogImage: article.coverImageJpg,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: article.title,
+      description: article.seoDescription,
+      image: `https://eskyarchitects.com${article.coverImageJpg}`,
+      datePublished: article.publishedDate,
+      dateModified: article.publishedDate,
+      author: {
+        '@type': 'Organization',
+        name: 'Architecture One',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Architecture One',
+      },
+    },
+  })),
   {
     url: '/contact',
     outputPath: path.join(DIST_DIR, 'contact/index.html'),

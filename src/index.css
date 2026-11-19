@@ -4,13 +4,23 @@
 
 @layer base {
   :root {
-    --color-primary: #542638;
-    --color-primary-hover: #3F1C2A;
-    --color-secondary: #875467;
-    --color-accent: #A99AA5;
-    --color-background: #F5F1ED;
+    /* ESKY Architects Official Brand Colours */
+    --brand-primary: #F57B54;
+    --brand-primary-hover: #E0653E;
+    --brand-secondary: #6D6D6D;
+    --background-primary: #FFFFFF;
+    --background-secondary: #F8F6F2;
+    --text-primary: #29252A;
+    --text-secondary: #6D6D6D;
+    --color-border: #E8E5DF;
+
+    /* Semantic mappings */
+    --color-primary: #F57B54;
+    --color-primary-hover: #E0653E;
+    --color-secondary: #6D6D6D;
+    --color-accent: #E8E5DF;
+    --color-background: #F8F6F2;
     --color-surface: #FFFFFF;
-    --color-border: #D9D8DC;
     --color-charcoal: #29252A;
   }
 
@@ -18,20 +28,20 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #29252A;
-    background-color: #F5F1ED;
+    color: var(--text-primary);
+    background-color: var(--background-secondary);
   }
 
   body {
     min-height: 100vh;
     overflow-x: hidden;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-    background-color: #F5F1ED;
-    color: #29252A;
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
   }
 
   ::selection {
-    background-color: #542638;
+    background-color: #F57B54;
     color: #FFFFFF;
   }
 }

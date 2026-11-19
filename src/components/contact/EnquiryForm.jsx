@@ -154,15 +154,15 @@ export default function EnquiryForm() {
   }
 
   return (
-    <div className="bg-white border border-silver p-6 sm:p-10 shadow-xs">
+    <div className="bg-white border border-silver p-6 sm:p-10 shadow-xs rounded-lg">
       <div className="mb-8">
-        <span className="text-xs font-bold uppercase tracking-widest text-wine">
+        <span className="text-xs font-bold uppercase tracking-widest text-charcoal font-mono">
           Direct Project Communication
         </span>
-        <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-charcoal tracking-tight">
+        <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-charcoal tracking-tight font-condensed">
           Project Enquiry Form
         </h2>
-        <p className="mt-2 text-sm text-charcoal/70 leading-relaxed">
+        <p className="mt-2 text-sm text-charcoal/70 leading-relaxed font-light">
           Provide your project requirements below. As a static corporate website, you can dispatch your pre-formatted enquiry directly via your verified messaging or email application.
         </p>
       </div>
@@ -171,7 +171,7 @@ export default function EnquiryForm() {
       {errors.contactMethod && (
         <div
           role="alert"
-          className="mb-6 p-4 bg-red-50 border-l-4 border-l-red-600 text-xs sm:text-sm text-red-900 flex items-start gap-2.5"
+          className="mb-6 p-4 bg-red-50 border-l-4 border-l-red-600 text-xs sm:text-sm text-red-900 flex items-start gap-2.5 rounded-r-md"
         >
           <HiExclamationCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" aria-hidden="true" />
           <span>{errors.contactMethod}</span>
@@ -182,11 +182,11 @@ export default function EnquiryForm() {
       {dispatchNotice && (
         <div
           role="status"
-          className="mb-6 p-4 bg-ivory border-l-4 border-l-burgundy text-xs sm:text-sm text-charcoal flex items-start gap-2.5"
+          className="mb-6 p-4 bg-ivory border-l-4 border-l-coral text-xs sm:text-sm text-charcoal flex items-start gap-2.5 rounded-r-md"
         >
-          <HiOutlineInformationCircle className="w-5 h-5 text-burgundy shrink-0 mt-0.5" aria-hidden="true" />
+          <HiOutlineInformationCircle className="w-5 h-5 text-coral shrink-0 mt-0.5" aria-hidden="true" />
           <div>
-            <span className="font-bold text-burgundy block mb-1">
+            <span className="font-bold text-coral block mb-1">
               Opening {dispatchNotice.channel}
             </span>
             <p className="text-charcoal/70 leading-relaxed">{dispatchNotice.instruction}</p>
@@ -210,9 +210,9 @@ export default function EnquiryForm() {
             placeholder="e.g. Anand Kumar"
             aria-invalid={Boolean(errors.fullName)}
             aria-describedby={errors.fullName ? 'fullName-error' : undefined}
-            className={`w-full px-4 py-3 text-sm bg-white border ${
-              errors.fullName ? 'border-red-500 ring-1 ring-red-500' : 'border-silver focus:border-burgundy'
-            } text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-burgundy transition-colors`}
+            className={`w-full px-4 py-3 text-sm bg-white border rounded ${
+              errors.fullName ? 'border-red-500 ring-1 ring-red-500' : 'border-silver focus:border-coral'
+            } text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-coral transition-colors`}
           />
           {errors.fullName && (
             <p id="fullName-error" className="mt-1.5 text-xs text-red-600 flex items-center gap-1">
@@ -238,9 +238,9 @@ export default function EnquiryForm() {
               placeholder="e.g. +91 98765 43210"
               aria-invalid={Boolean(errors.phone)}
               aria-describedby={errors.phone ? 'phone-error' : undefined}
-              className={`w-full px-4 py-3 text-sm bg-white border ${
-                errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-silver focus:border-burgundy'
-              } text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-burgundy transition-colors`}
+              className={`w-full px-4 py-3 text-sm bg-white border rounded ${
+                errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-silver focus:border-coral'
+              } text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-coral transition-colors`}
             />
             {errors.phone && (
               <p id="phone-error" className="mt-1.5 text-xs text-red-600 flex items-center gap-1">
@@ -264,9 +264,9 @@ export default function EnquiryForm() {
               placeholder="e.g. anand@example.com"
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? 'email-error' : undefined}
-              className={`w-full px-4 py-3 text-sm bg-white border ${
-                errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-silver focus:border-burgundy'
-              } text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-burgundy transition-colors`}
+              className={`w-full px-4 py-3 text-sm bg-white border rounded ${
+                errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-silver focus:border-coral'
+              } text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-coral transition-colors`}
             />
             {errors.email && (
               <p id="email-error" className="mt-1.5 text-xs text-red-600 flex items-center gap-1">
@@ -289,7 +289,7 @@ export default function EnquiryForm() {
               name="service"
               value={formData.service}
               onChange={handleChange}
-              className="w-full px-4 py-3 text-sm bg-white border border-silver text-charcoal focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy transition-colors"
+              className="w-full px-4 py-3 text-sm bg-white border border-silver text-charcoal rounded focus:border-coral focus:outline-none focus:ring-1 focus:ring-coral transition-colors"
             >
               {services.map((s) => (
                 <option key={s.slug} value={s.title}>
@@ -311,7 +311,7 @@ export default function EnquiryForm() {
               value={formData.location}
               onChange={handleChange}
               placeholder="e.g. City, District or State"
-              className="w-full px-4 py-3 text-sm bg-white border border-silver text-charcoal placeholder-charcoal/40 focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy transition-colors"
+              className="w-full px-4 py-3 text-sm bg-white border border-silver text-charcoal rounded placeholder-charcoal/40 focus:border-coral focus:outline-none focus:ring-1 focus:ring-coral transition-colors"
             />
           </div>
         </div>
@@ -331,9 +331,9 @@ export default function EnquiryForm() {
             placeholder="Please describe your plot size, estimated square footage, timeline, or specific architectural and civil requirements..."
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? 'message-error' : undefined}
-            className={`w-full px-4 py-3 text-sm bg-white border ${
-              errors.message ? 'border-red-500 ring-1 ring-red-500' : 'border-silver focus:border-burgundy'
-            } text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-burgundy transition-colors`}
+            className={`w-full px-4 py-3 text-sm bg-white border rounded ${
+              errors.message ? 'border-red-500 ring-1 ring-red-500' : 'border-silver focus:border-coral'
+            } text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-coral transition-colors`}
           />
           {errors.message && (
             <p id="message-error" className="mt-1.5 text-xs text-red-600 flex items-center gap-1">
@@ -355,7 +355,7 @@ export default function EnquiryForm() {
                 <button
                   type="button"
                   onClick={handleWhatsAppDispatch}
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-burgundy text-white text-sm font-semibold tracking-wide hover:bg-burgundy-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-burgundy shadow-xs transition-all active:translate-y-px"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-coral text-white text-sm font-semibold tracking-wide hover:bg-coral-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-coral shadow-xs transition-all active:translate-y-px rounded"
                 >
                   <HiOutlineChatBubbleLeftRight className="w-5 h-5 text-ivory shrink-0" aria-hidden="true" />
                   <span>Send via WhatsApp</span>
@@ -366,7 +366,7 @@ export default function EnquiryForm() {
                 <button
                   type="button"
                   onClick={handleEmailDispatch}
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-charcoal text-white text-sm font-semibold tracking-wide hover:bg-charcoal/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-charcoal shadow-xs transition-all active:translate-y-px"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-charcoal text-white text-sm font-semibold tracking-wide hover:bg-charcoal/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-charcoal shadow-xs transition-all active:translate-y-px rounded"
                 >
                   <HiOutlineEnvelope className="w-5 h-5 text-ivory shrink-0" aria-hidden="true" />
                   <span>Send via Email Client</span>
@@ -374,7 +374,7 @@ export default function EnquiryForm() {
               )}
             </div>
           ) : (
-            <div className="p-4 bg-ivory border border-silver text-xs text-charcoal/70 leading-relaxed">
+            <div className="p-4 bg-ivory border border-silver text-xs text-charcoal/70 leading-relaxed rounded-md">
               <p className="font-semibold text-charcoal mb-1">
                 Direct Dispatch Notice
               </p>

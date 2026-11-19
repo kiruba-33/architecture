@@ -41,7 +41,7 @@ export default function Footer() {
 
             {/* Col 2: Services (3 cols) */}
             <div className="lg:col-span-3">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-mauve mb-4">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-4">
                 Core Services
               </h3>
               <ul className="space-y-2.5 text-sm">
@@ -49,7 +49,7 @@ export default function Footer() {
                   <li key={service.path}>
                     <Link
                       to={service.path}
-                      className="text-ivory/80 hover:text-wine transition-colors inline-block"
+                      className="text-ivory/80 hover:text-white transition-colors inline-block"
                     >
                       {service.label}
                     </Link>
@@ -60,7 +60,7 @@ export default function Footer() {
 
             {/* Col 3: Quick Navigation (2 cols) */}
             <div className="lg:col-span-2">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-mauve mb-4">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-4">
                 Navigation
               </h3>
               <ul className="space-y-2.5 text-sm">
@@ -68,7 +68,7 @@ export default function Footer() {
                   <li key={item.path}>
                     <Link
                       to={item.path}
-                      className="text-ivory/80 hover:text-wine transition-colors inline-block"
+                      className="text-ivory/80 hover:text-white transition-colors inline-block"
                     >
                       {item.label}
                     </Link>
@@ -79,7 +79,7 @@ export default function Footer() {
 
             {/* Col 4: Corporate Contact Details (3 cols) - Rendered only when verified */}
             <div className="lg:col-span-3">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-mauve mb-4">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-4">
                 Enquiries & Contact
               </h3>
 
@@ -130,7 +130,7 @@ export default function Footer() {
                   )}
                 </ul>
               ) : (
-                <div className="text-xs text-silver leading-relaxed bg-white/5 p-4 border border-white/10">
+                <div className="text-xs text-silver leading-relaxed bg-white/5 p-4 border border-white/10 rounded-md">
                   <p>
                     Direct communication channels are currently being configured for this practice.
                   </p>

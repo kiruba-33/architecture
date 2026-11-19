@@ -72,19 +72,26 @@ export default function ContactPage() {
       {/* ─────────────────────────────────────────────────────────────
           2. CONTACT DETAILS & ENQUIRY WORKFLOW SECTION
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 bg-ivory border-b border-silver">
-        <Container>
+      <section className="relative py-20 sm:py-28 bg-ivory border-b border-silver overflow-hidden">
+        {/* Architectural Background Artwork: Design D (Abstract Geometric Composition) */}
+        <div
+          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-[0.45] mix-blend-multiply"
+          style={{ backgroundImage: 'url(/images/backgrounds/bg-geometric.webp)' }}
+          aria-hidden="true"
+        />
+
+        <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
             {/* Left Column: Direct Channels & Practice Overview (5 cols) */}
             <div className="lg:col-span-5 space-y-8">
-              <div className="bg-white p-7 sm:p-9 border border-silver shadow-xs">
-                <span className="text-xs font-bold uppercase tracking-widest text-wine block mb-2">
+              <div className="bg-white p-7 sm:p-9 border border-silver shadow-xs rounded-lg">
+                <span className="text-xs font-bold uppercase tracking-widest text-charcoal font-mono block mb-2">
                   Practice Channels
                 </span>
-                <h2 className="text-2xl font-extrabold text-charcoal tracking-tight">
+                <h2 className="text-2xl font-extrabold text-charcoal tracking-tight font-condensed">
                   Direct Communication
                 </h2>
-                <p className="mt-2 text-sm text-charcoal/70 leading-relaxed">
+                <p className="mt-2 text-sm text-charcoal/70 leading-relaxed font-light">
                   Our engineering and drafting teams review every incoming inquiry with thorough technical rigor.
                 </p>
 
@@ -93,7 +100,7 @@ export default function ContactPage() {
                   <div className="mt-8 space-y-6 pt-6 border-t border-silver/50">
                     {hasAddress && (
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 flex items-center justify-center bg-ivory border border-silver text-burgundy shrink-0">
+                        <div className="w-10 h-10 flex items-center justify-center bg-ivory border border-silver text-coral shrink-0 rounded-md">
                           <HiMapPin className="w-5 h-5" aria-hidden="true" />
                         </div>
                         <div>
@@ -109,7 +116,7 @@ export default function ContactPage() {
 
                     {hasPhone && (
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 flex items-center justify-center bg-ivory border border-silver text-burgundy shrink-0">
+                        <div className="w-10 h-10 flex items-center justify-center bg-ivory border border-silver text-coral shrink-0 rounded-md">
                           <HiPhone className="w-5 h-5" aria-hidden="true" />
                         </div>
                         <div>
@@ -119,7 +126,7 @@ export default function ContactPage() {
                           {siteConfig.phoneRaw ? (
                             <a
                               href={`tel:${siteConfig.phoneRaw}`}
-                              className="text-sm text-charcoal hover:text-wine transition-colors mt-1 block font-semibold"
+                              className="text-sm text-charcoal hover:text-coral transition-colors mt-1 block font-semibold"
                             >
                               {siteConfig.phone}
                             </a>
@@ -134,7 +141,7 @@ export default function ContactPage() {
 
                     {hasWhatsApp && (
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 flex items-center justify-center bg-ivory border border-silver text-burgundy shrink-0">
+                        <div className="w-10 h-10 flex items-center justify-center bg-ivory border border-silver text-coral shrink-0 rounded-md">
                           <HiOutlineChatBubbleLeftRight className="w-5 h-5" aria-hidden="true" />
                         </div>
                         <div>
@@ -145,7 +152,7 @@ export default function ContactPage() {
                             href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^0-9]/g, '')}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm text-burgundy hover:text-wine hover:underline mt-1 block font-semibold"
+                            className="text-sm text-coral hover:text-coral-dark hover:underline mt-1 block font-semibold"
                           >
                             Open Direct WhatsApp Chat
                           </a>
@@ -155,7 +162,7 @@ export default function ContactPage() {
 
                     {hasEmail && (
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 flex items-center justify-center bg-ivory border border-silver text-burgundy shrink-0">
+                        <div className="w-10 h-10 flex items-center justify-center bg-ivory border border-silver text-coral shrink-0 rounded-md">
                           <HiEnvelope className="w-5 h-5" aria-hidden="true" />
                         </div>
                         <div>
@@ -164,7 +171,7 @@ export default function ContactPage() {
                           </span>
                           <a
                             href={`mailto:${siteConfig.email}`}
-                            className="text-sm text-charcoal hover:text-wine transition-colors mt-1 block font-semibold"
+                            className="text-sm text-charcoal hover:text-coral transition-colors mt-1 block font-semibold"
                           >
                             {siteConfig.email}
                           </a>
@@ -174,7 +181,7 @@ export default function ContactPage() {
 
                     {hasHours && (
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 flex items-center justify-center bg-ivory border border-silver text-burgundy shrink-0">
+                        <div className="w-10 h-10 flex items-center justify-center bg-ivory border border-silver text-coral shrink-0 rounded-md">
                           <HiClock className="w-5 h-5" aria-hidden="true" />
                         </div>
                         <div>
@@ -189,7 +196,7 @@ export default function ContactPage() {
                     )}
                   </div>
                 ) : (
-                  <div className="mt-6 p-4 bg-ivory border border-silver text-xs text-charcoal/70 leading-relaxed">
+                  <div className="mt-6 p-4 bg-ivory border border-silver text-xs text-charcoal/70 leading-relaxed rounded-md">
                     <p className="font-semibold text-charcoal mb-1">
                       Office Parameters Update
                     </p>
@@ -201,8 +208,8 @@ export default function ContactPage() {
               </div>
 
               {/* Consultation Standards Card */}
-              <div className="bg-charcoal text-white p-7 sm:p-8 border-t-4 border-t-burgundy shadow-sm">
-                <span className="text-xs font-bold uppercase tracking-widest text-mauve block mb-2">
+              <div className="bg-charcoal text-white p-7 sm:p-8 border-t-4 border-t-coral shadow-sm rounded-lg">
+                <span className="text-xs font-bold uppercase tracking-widest text-white font-mono block mb-2">
                   Commitment to Quality
                 </span>
                 <h3 className="text-lg font-bold text-white mb-4">
@@ -211,15 +218,15 @@ export default function ContactPage() {
 
                 <ul className="space-y-4 text-xs sm:text-sm text-gray-300">
                   <li className="flex items-start gap-3">
-                    <HiOutlineDocumentText className="w-5 h-5 text-mauve shrink-0 mt-0.5" aria-hidden="true" />
+                    <HiOutlineDocumentText className="w-5 h-5 text-secondary shrink-0 mt-0.5" aria-hidden="true" />
                     <span>Thorough spatial analysis and plot feasibility evaluation before cost estimation.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <HiOutlineShieldCheck className="w-5 h-5 text-mauve shrink-0 mt-0.5" aria-hidden="true" />
+                    <HiOutlineShieldCheck className="w-5 h-5 text-secondary shrink-0 mt-0.5" aria-hidden="true" />
                     <span>Uncompromised structural engineering standards and verified material grades.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <HiOutlineClock className="w-5 h-5 text-mauve shrink-0 mt-0.5" aria-hidden="true" />
+                    <HiOutlineClock className="w-5 h-5 text-secondary shrink-0 mt-0.5" aria-hidden="true" />
                     <span>Predictable execution schedules and milestone-based transparent reporting.</span>
                   </li>
                 </ul>
@@ -249,12 +256,12 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {consultationFaqs.map((faq, idx) => (
-              <div key={idx} className="p-6 bg-ivory border border-silver flex flex-col justify-between">
+              <div key={idx} className="p-6 bg-ivory border border-silver flex flex-col justify-between rounded-lg">
                 <div>
                   <h4 className="text-base font-bold text-charcoal mb-3">
                     {faq.q}
                   </h4>
-                  <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-light">
                     {faq.a}
                   </p>
                 </div>

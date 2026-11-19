@@ -30,12 +30,12 @@ export default function ProjectGrid({ projects = [] }) {
   // Polished and intentional empty state when no verified projects are published
   if (publishedProjects.length === 0) {
     return (
-      <div className="max-w-2xl mx-auto bg-white p-8 sm:p-14 border border-silver text-center shadow-xs">
-        <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-ivory border border-silver text-burgundy">
+      <div className="max-w-2xl mx-auto bg-white p-8 sm:p-14 border border-silver text-center shadow-xs rounded-lg">
+        <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-ivory border border-silver text-coral rounded-md">
           <HiOutlineFolderOpen className="w-8 h-8" aria-hidden="true" />
         </div>
 
-        <span className="text-xs font-bold uppercase tracking-widest text-wine">
+        <span className="text-xs font-bold uppercase tracking-widest text-charcoal">
           Portfolio Curation
         </span>
 
@@ -43,7 +43,7 @@ export default function ProjectGrid({ projects = [] }) {
           Selected Works in Preparation
         </h2>
 
-        <p className="mt-4 text-sm sm:text-base text-charcoal/70 leading-relaxed">
+        <p className="mt-4 text-sm sm:text-base text-charcoal/70 leading-relaxed font-light">
           Project portfolio documentation is currently being prepared. Please contact us to discuss your project requirements.
         </p>
 
@@ -67,13 +67,13 @@ export default function ProjectGrid({ projects = [] }) {
           <button
             type="button"
             onClick={() => setSelectedCategory('All')}
-            className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors border ${
+            className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors border rounded ${
               selectedCategory === 'All'
-                ? 'bg-burgundy text-white border-burgundy'
-                : 'bg-white text-charcoal border-silver hover:border-burgundy'
+                ? 'bg-coral text-white border-coral'
+                : 'bg-white text-charcoal border-silver hover:border-coral'
             }`}
           >
-            All Works ({publishedProjects.length})
+            All Concepts ({publishedProjects.length})
           </button>
 
           {availableCategories.map((category) => {
@@ -84,10 +84,10 @@ export default function ProjectGrid({ projects = [] }) {
                 key={category}
                 type="button"
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors border ${
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors border rounded ${
                   selectedCategory === category
-                    ? 'bg-burgundy text-white border-burgundy'
-                    : 'bg-white text-charcoal border-silver hover:border-burgundy'
+                    ? 'bg-coral text-white border-coral'
+                    : 'bg-white text-charcoal border-silver hover:border-coral'
                 }`}
               >
                 {category} ({count})
